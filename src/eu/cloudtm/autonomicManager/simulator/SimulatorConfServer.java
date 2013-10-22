@@ -48,7 +48,7 @@ public class SimulatorConfServer {
    SimulatorConfServer(InputOracle inputOracle) {
 
 
-      maxServentsPerCpu = (Integer) inputOracle.getEvaluatedParam(EvaluatedParam.CORE_PER_CPU);
+      maxServentsPerCpu = ((Number)inputOracle.getEvaluatedParam(EvaluatedParam.CORE_PER_CPU)).intValue();
 
       localTxGetCpuServiceDemand = (long) ((((Number) inputOracle.getParam(Param.ReadOnlyTxTotalCpuTime))).doubleValue() / (((Number) inputOracle.getParam(Param.AvgGetsPerROTransaction)).doubleValue()));
 
