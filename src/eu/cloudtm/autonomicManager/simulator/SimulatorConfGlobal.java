@@ -15,7 +15,7 @@ class SimulatorConfGlobal {
    private Integer numClients;
    private Integer objectReplicationDegree;
    private Long startStatTime;
-   private Long averageServerToServerNetDelay;    //TODO Chiedere a Pierangelo
+   private Long averageServerToServerNetDelay;    //AvgRTT/2
    private Long averageClientToServerNetDelay;    //TODO Chiedere a Pierangelo
 
    SimulatorConfGlobal(InputOracle inputOracle) {
@@ -26,7 +26,7 @@ class SimulatorConfGlobal {
       objectReplicationDegree = toInt(inputOracle.getForecastParam(ForecastParam.ReplicationDegree));
 
       startStatTime = 0L;
-      averageServerToServerNetDelay = 0L;
+      averageServerToServerNetDelay = (((Number) inputOracle.getParam(Param.AvgRemoteGetRtt)).longValue()/2);
       averageClientToServerNetDelay = 0L;
 
 

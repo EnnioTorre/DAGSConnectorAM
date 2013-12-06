@@ -92,7 +92,7 @@ public class SimulatorOracle implements Oracle {
             out.flush();
 
 
-            ProcessBuilder pb = new ProcessBuilder(exec);
+            ProcessBuilder pb = new ProcessBuilder("timeout","20m",exec);
             pb.directory(fileSimulatorConfDir);
             Process p;
 
@@ -112,6 +112,7 @@ public class SimulatorOracle implements Oracle {
             }*/
 
             while ((line = br.readLine()) != null) {
+                
                //System.out.println(line);
                if (line.charAt(0) == '$') {
                   populateOutput(line, outputOracle, simulatorConf.getNumberOfClients());
@@ -138,7 +139,9 @@ public class SimulatorOracle implements Oracle {
             throw new OracleException(e1);
          } catch (InterruptedException e2) {
             throw new OracleException(e2);
-         } finally {
+         } catch (Exception e3) {
+            throw new OracleException(e3);
+         }finally {
             if (out != null) {
                out.close();
             }

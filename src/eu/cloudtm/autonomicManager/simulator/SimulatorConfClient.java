@@ -10,7 +10,7 @@ class SimulatorConfClient {
 
    private String systemModel = "CLOSED";
    private String workloadType = "SYNTHETIC";
-   private Integer numberOfTransactions = 70;
+   private Integer numberOfTransactions = 1000;
    private Integer numberOfThreads = 1;
    private String dataItemsAccessDistribution = "UNIFORM";
    private Integer numberOfTxClasses = 2;
@@ -24,7 +24,7 @@ class SimulatorConfClient {
    private String trasactionaLengthType = "FIXED";
    //private Double txArrivalRate = 0.1;
    private Double txArrivalRate;
-   //private Long interTransactionThinkTime = 40000L;
+   private Long inter_tx_operation_think_time=0L;
    private Long interTransactionThinkTime;
    private Long backoffTime = 50L;
    private Boolean clientPrintStat = true;
@@ -101,6 +101,7 @@ class SimulatorConfClient {
               "transaction_length_type = " + trasactionaLengthType + "\n" +
               "tx_arrival_rate = " + txArrivalRate + "\n" +
               "inter_transaction_think_time = " + interTransactionThinkTime + "\n" +
+              "inter_tx_operation_think_time = "+ inter_tx_operation_think_time + "\n" +
               "backoff_time = " + backoffTime + "\n" +
               "client_print_stat = " + clientPrintStat + "\n" +
               "client_print_execution_info = " + clientPrintExecutionInfo + "\n" +
